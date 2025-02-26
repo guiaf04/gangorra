@@ -9,8 +9,8 @@
 #include "dataStructure.h"
 #include "hardware/adc.h"
 
-#define MIN_DUTY 30   // Duty cycle mínimo em porcentagem
-#define MAX_DUTY 60    // Duty cycle máximo em porcentagem
+#define MIN_DUTY 0   // Duty cycle mínimo em porcentagem
+#define MAX_DUTY 100    // Duty cycle máximo em porcentagem
 
 
 #define throttle 1300
