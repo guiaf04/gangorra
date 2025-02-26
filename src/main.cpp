@@ -67,8 +67,8 @@ int main() {
     xTaskCreate(vSystemLogTask,"Task Log", 256, buffer, 1, NULL);
     xTaskCreate(vTaskMotorControl, "Left Motor Task", 1000, &left_motor_params, 1, NULL);
     xTaskCreate(vTaskMotorControl, "Right Motor Task", 1000, &right_motor_params, 1, NULL);
-    //xTaskCreate(potentiometerTask, "Potentiometer Task", 1000, xMotor, 2, NULL);
-    xTaskCreate(vPIDParametersTask, "PID Task", 1000, &pid_params, 3, NULL);
+    xTaskCreate(potentiometerTask, "Potentiometer Task", 1000, xLeftMotor, 2, NULL);
+    //xTaskCreate(vPIDParametersTask, "PID Task", 1000, &pid_params, 3, NULL);
 
     //escalona as tarefas
     vTaskStartScheduler();
@@ -119,11 +119,6 @@ void vInitializeMotors() {
     left_motor.vInitMotors();
     right_motor.vInitMotors();
 
-    printf("Inincializando, colocando 30%% para começar\n");
-    left_motor.setSpeed(30);
-    right_motor.setSpeed(30);
-
-    //sleep_ms(3000);
     _delay_ms(3000);
     printf("Começou, colocando 40%% como vel padrão\n");
     left_motor.setSpeed(40);

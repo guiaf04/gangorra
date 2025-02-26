@@ -41,8 +41,8 @@ void Motor::vInitMotors() {
 }
 
 void Motor::setSpeed(const uint speed) const {
-	const float duty_min = 5.1f;  // Duty mínimo detectado (em %)
-	const float duty_max = 14.4f; // Duty máximo detectado (em %)
+	const float duty_min = 4.5f;  // Duty mínimo detectado (em %)
+	const float duty_max = 7.1f; // Duty máximo detectado (em %)
 
 	// Normalização para que speed (0-100) corresponda ao intervalo real (5.1% - 14.4%)
 	float duty_cycle = ((speed / 100.0f) * (duty_max - duty_min)) + duty_min;
